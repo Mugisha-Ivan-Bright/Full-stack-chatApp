@@ -5,7 +5,7 @@ import cors from 'cors'
 import { app, io, server } from './lib/socket.js';
 dotenv.config()
 import path from 'path';
-
+import { fileURLToPath } from 'url';
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}));
@@ -29,12 +29,16 @@ app.use("/api/messages",messageRoute)
 
 
 const PORT = process.env.PORT
-const __dirname = path.resolve();
+
+const  __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+
 if(process.env.NODE_ENV ==="production"){
-   app.use(express.static(path.join(__dirname,"../frontend/chatProject/dist"))) ;
+   app.use(express.static(path.join(__dirname, ".../frontend/chatProject/dist")));
 
    app.get("*", (req , res)=>{
-    res.sendFile(path.join(__dirname,"../frontend","chatProject","dist","index.html"));
+    res.sendFile(path.join(__dirname,"../frontend/chatProject/dist/index.html"));
    })
 }
 
