@@ -35,10 +35,10 @@ const __dirname = path.dirname(__filename);
 
 
 if(process.env.NODE_ENV ==="production"){
-   app.use(express.static(path.join(__dirname, "../frontend/chatProject/dist")));
+   app.use(express.static(path.join(__dirname, "../../frontend/chatProject/dist")));
 
 app.get(/^\/(?!api).*/, (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/chatProject/dist/index.html"));
+  res.sendFile(path.join(__dirname, "../../frontend/chatProject/dist/index.html"));
 });
 
 }
