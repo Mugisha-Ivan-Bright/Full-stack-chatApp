@@ -17,7 +17,7 @@ app.use(cors({
 ))
 
 import { connectDB } from './lib/db.js'
-import authRoutes from './routes/auth.route.js '
+import authRoutes from './routes/auth.route.js'
 import messageRoute from './routes/messages.route.js';
 
 
