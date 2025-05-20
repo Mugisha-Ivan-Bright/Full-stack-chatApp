@@ -70,6 +70,6 @@ export const sendMessage = async (req,res)=>{
 
   } catch (error) {
     res.status(400).json({'message':'Failed to upload image'})
-    console.log("Error in sendMessage router")
+    console.log("Error in sendMessage router",error)
   }
 }
